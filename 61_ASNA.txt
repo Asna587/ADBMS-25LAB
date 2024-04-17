@@ -1,0 +1,57 @@
+-- 
+-- Roll No: 61
+-- Name: ASNA T P
+-- Program: ASSIGNMENT-111
+-- 
+
+
+--
+-- Table structure for table publishers
+--
+create table publishers(publisherid int auto_increment primary key,name varchar(50) unique,address varchar(100) not null);
+--
+--
+-- Dumping data for table publishers
+--
+insert into publishers values(1,'asna','www');
+insert into publishers values(2,'kenza','www');
+insert into publishers values(3,'mubashira','whh');
+insert into publishers values(4,'jubi','whi');
+insert into publishers values(5,'sabna','whu');
+--
+-- Table structure for table books
+--
+create table books(accno int auto_increment primary key,title varchar(100) not null unique,author varchar(50) not null ,price float(6,2),type ENUM('lending','references'),availability ENUM('yes','no'),publisherid int,constraint books_fk_publisherid foreign key(publisherid) references publishers (publisherid));
+--
+-- Table structure for table members
+--
+create table members(membersid int auto_increment primary key,name varchar(50) not null,address varchar(100),type ENUM('staff','student')); 
+--
+--
+-- Dumping data for table members
+--
+insert into  members values(101,'sherin','ghi','staff');
+insert into  members values(102,'shihana','gfd','student');
+insert into  members values(103,'shaima','lfd','staff');
+insert into  members values(104,'suni','ljj','student');
+insert into  members values(105,'sumi','kkj','student');
+-- Table structure for table issues
+--
+create table issues(issuesid int auto_increment primary key,membersid int,accno int,issuedate DATE,duedate DATE,foreign key(membersid) references members(membersid));
+--
+-- Table structure for table returns
+--
+create table returns(returnid int auto_increment primary key,membersid int,accno int,returndate DATE,fine int default 0,foreign key(membersid)references members(membersid),constraint returns_fk_membersid foreign key(accno) references books(accno),constraint returns_check_fine check(fine>=0));
+--
+-- Dumping data for table 
+--
+
+-- --------insert/update statement commands----------- # This line may be removed in the actcual file
+
+--
+-- SQl Query Statements
+--
+
+-- -----SQL query statments preceeded by the its question-------- # This line may be removed in the actual file
+-- -----Question number should be commented---------------#This line may be removed in the actual file
+
