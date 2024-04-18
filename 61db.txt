@@ -1,0 +1,47 @@
+-- Roll No: 61
+-- Name: Asna T P
+-- Program: Assignment-III
+-- 
+
+
+--
+--Table structure for table Publishers
+--
+create table publishers(publisherid int primary key auto_increment,name varchar(50) unique not null,address varchar(100));
+
+-- Table structure for table Books
+create table books(accno int primary key auto_increment,title varchar(100) unique not null,author varchar(50) not null,price float(6,2),type enum("lending","reference" ),availability enum("yes","no"),publisherid int,constraint bks_fkey_pubid foreign key (publisherid) references publishers(publisherid)); 
+
+-- Table structure for table Members
+
+create table members(memberid int primary key auto_increment,name varchar(50) not null,address varchar(100),type enum("staff","student"));
+-- Table structure for table issues
+create table issues(issueid int primary key auto_increment,memberid int,accno int ,issuedate date ,duedate date ,constraint iss_fkey_membid foreign key(memberid) references members(memberid),constraint iss_fkey_accno foreign key(accno) references books(accno));
+-- Table structure for table Returns
+create table returns(returnid int primary key auto_increment,memberid int,accno int,returndate date,fine int default 0,constraint rtn_chk_neg check(fine>=0),constraint rtn_fkey_membid foreign key(memberid) references members(memberid),constraint rtn_fkey_accno foreign key(accno) references books(accno));
+
+--
+-- Dumping data for table publishers
+--
+
+insert into publishers(name,address) values("ansar","valanchery"),("shafeen","pattambi"),("shamas","kodungaloor"),("shahala","kottakkal"),("amal","kozhikode");
+
+-- Dumping data for table books
+
+insert into books(title,author,price,type,availability,publisherid)values("ikigai","ansar",15.50,"lending","no",1),("alchemist","shafeen",17.80,"lending","yes",2),("pursuit of happiness","shamas",19.40,"reference","yes",3),("wings of fire","shahal",16.0,"lending","no",4),("loved ones","amal",35.10,"lending","yes",5);
+
+-- Dumping data for table Members
+insert into members(name,address,type)values("binshad","manjeri","student"),("dolu","pattambi","staff"),("bolu","kottayam","staff"),("jamban","kollam","staff"),("thumban","trivandrum","student");
+
+-- Dumping data for table Issues
+insert into issues(memberid,accno,issuedate,duedate)values(1,1,"2024-04-15","2024-05-15"),(2,2,"2024-01-16","2024-02-16"),(1,5,"2024-02-15","2024-03-15"),(4,4,"2024-04-15","2024-06-15"),(5,5,"2023-12-15","2024-02-15");
+
+-- Dumping data for table Returns
+insert into returns(memberid,accno,returndate,fine)values(1,1,"2024-05-18",3),(2,2,"2024-02-16",0),(1,5,"2024-03-22",7),(4,4,"2024-06-15",0),(5,5,"2024-03-15",30);
+
+
+
+
+
+
+-- -----Question number should be commented---------------#This line may be removed in the actual file
