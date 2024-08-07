@@ -77,3 +77,38 @@ Reconstructed Matrix A:
 Is the reconstruction accurate?
 True
 
+===================================================== RESTART: C:/Users/Admin/Desktop/Asna/dsml/PROGRAM_11.py =====================================================
+3
+
+===================================================== RESTART: C:/Users/Admin/Desktop/Asna/dsml/PROGRAM_12.py =====================================================
+Addition:
+ [[10 10 10]
+ [10 10 10]
+ [10 10 10]]
+
+Subtraction:
+ [[-8 -6 -4]
+ [-2  0  2]
+ [ 4  6  8]]
+
+Matrix Multiplication:
+ [[ 30  24  18]
+ [ 84  69  54]
+ [138 114  90]]
+
+Scalar Multiplication:
+ [[ 2  4  6]
+ [ 8 10 12]
+ [14 16 18]]
+
+Transpose of A:
+ [[1 4 7]
+ [2 5 8]
+ [3 6 9]]
+
+Transpose of B:
+ [[9 6 3]
+ [8 5 2]
+ [7 4 1]]
+
+
